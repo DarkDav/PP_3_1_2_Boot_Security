@@ -52,6 +52,6 @@ private Set<User> users;
 
     @Override
     public String toString() {
-        return name.substring(5);
+        return name;
     }
 }
