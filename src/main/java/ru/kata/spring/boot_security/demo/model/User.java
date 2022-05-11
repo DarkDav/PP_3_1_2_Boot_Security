@@ -6,11 +6,13 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "users")
 public class User implements UserDetails {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -48,7 +50,8 @@ public class User implements UserDetails {
     @JoinTable(name = "users_roles",
             joinColumns = @JoinColumn(name = "userId"),
             inverseJoinColumns = @JoinColumn(name = "roleId"))
-    private Set<Role> roles;
+    private Set<Role> roles = new HashSet<>();
+
 
     public User() {
     }
@@ -132,6 +135,9 @@ public class User implements UserDetails {
     public Set<Role> getRoles() {
         return roles;
     }
+    public String getStringRoles(){
+        return roles.toString();
+    }
 
     public void setRoles(Set<Role>roles) {
         this.roles = roles;
@@ -171,4 +177,5 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
 }

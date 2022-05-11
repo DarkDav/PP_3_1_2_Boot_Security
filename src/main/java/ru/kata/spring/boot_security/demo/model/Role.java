@@ -10,6 +10,7 @@ import java.util.Set;
 public class Role implements GrantedAuthority {
     @Id
     private Long id;
+    @Column(name = "rolename", unique = true)
     private String name;
     @ManyToMany (fetch = FetchType.LAZY, mappedBy = "roles")
 private Set<User> users;
@@ -18,6 +19,9 @@ private Set<User> users;
 
     public Role(Long id) {
         this.id = id;
+    }
+    public Role(String rolename){
+        this.name = rolename;
     }
 
     public Role(Long id, String role) {
@@ -44,5 +48,10 @@ private Set<User> users;
     @Override
     public String getAuthority() {
         return getName();
+    }
+
+    @Override
+    public String toString() {
+        return name.substring(5);
     }
 }
