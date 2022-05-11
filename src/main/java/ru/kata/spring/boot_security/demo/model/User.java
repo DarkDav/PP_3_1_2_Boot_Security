@@ -127,14 +127,6 @@ public class User implements UserDetails {
     public String getEmail() {
         return email;
     }
-    public String getRolesAsString() {
-        StringBuilder sb = new StringBuilder();
-        for (Role role : roles) {
-            sb.append(role.toString().substring(5));
-            sb.append(" ");
-        }
-        return sb.toString();
-    }
 
     @Override
     public String toString() {
