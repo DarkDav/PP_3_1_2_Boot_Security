@@ -7,13 +7,20 @@ import java.util.List;
 
 public interface UserService {
 
-    List<User> getAllUsers ();
+    List<User> getAllUsers();
+
     Object getUserById(long id);
+
     void addUser(User user);
+
     void removeUser(long id);
+
     void updateUser(User user);
+
     Object getUserByLogin(String username);
+
     void addDefaultUser();
+
     User passwordCoder(User user);
 
 

@@ -60,19 +60,19 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUserByLogin(String username) {
-       return userDAO.getUserByLogin(username);
+        return userDAO.getUserByLogin(username);
     }
 
     @Override
     public void addDefaultUser() {
-            Set<Role> roleSet = new HashSet<>();
-            roleSet.add(roleService.findById(1L));
-            Set<Role> roleSet2 = new HashSet<>();
-            roleSet2.add(roleService.findById(1L));
-            roleSet2.add(roleService.findById(2L));
-            User user1 = new User("Astra", "Loker", (byte) 27,"SuperMan", "man","user1@mail.ru", "user1", "12345", roleSet);
-            User user2 = new User("Endy", "Poler", (byte) 52,"It","women", "admin@mail.ru", "admin", "admin", roleSet2);
-            addUser(user1);
-            addUser(user2);
+        Set<Role> roleSet = new HashSet<>();
+        roleSet.add(roleService.findById(1L));
+        Set<Role> roleSet2 = new HashSet<>();
+        roleSet2.add(roleService.findById(1L));
+        roleSet2.add(roleService.findById(2L));
+        User user1 = new User("Astra", "Loker", (byte) 27, "SuperMan", "man", "user1@mail.ru", "user1", "12345", roleSet);
+        User user2 = new User("Endy", "Poler", (byte) 52, "It", "women", "admin@mail.ru", "admin", "admin", roleSet2);
+        addUser(user1);
+        addUser(user2);
     }
 }

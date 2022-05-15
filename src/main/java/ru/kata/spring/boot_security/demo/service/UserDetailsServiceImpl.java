@@ -13,7 +13,7 @@ import ru.kata.spring.boot_security.demo.model.User;
 @Transactional
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-    UserDAO userDAO;
+    private UserDAO userDAO;
 
     public UserDetailsServiceImpl(UserDAO userDAO) {
         this.userDAO = userDAO;
@@ -22,7 +22,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         User user = userDAO.getUserByLogin(s);
-        if(user == null){
+        if (user == null) {
             throw new UsernameNotFoundException("user not found");
         }
         return user;

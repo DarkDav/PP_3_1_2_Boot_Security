@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Set;
 
 @Service
-public class RoleServiceImpl implements RoleService{
+public class RoleServiceImpl implements RoleService {
 
     private final RoleDAO roleDAO;
 
@@ -40,7 +40,7 @@ public class RoleServiceImpl implements RoleService{
 
     @Override
     public void addDefaultRole() {
-        addRole(new Role(1L,"ROLE_USER"));
-        addRole(new Role(2L,"ROLE_ADMIN"));
+        addRole(new Role(1L, "ROLE_USER"));
+        addRole(new Role(2L, "ROLE_ADMIN"));
     }
 }
